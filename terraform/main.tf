@@ -48,7 +48,7 @@ resource "aws_dynamodb_table" "urls_table" {
 # --- LAMBDA FUNCTION ---
 data "archive_file" "lambda_zip" {
   type        = "zip"
-  source_dir  = "${path.module}/../src/lambda"
+  source_dir  = "${path.module}/../build/lambda"
   output_path = "${path.module}/lambda.zip"
 }
 
@@ -100,9 +100,4 @@ resource "aws_lambda_permission" "apigw_lambda" {
   function_name = aws_lambda_function.shorten_lambda.function_name
   principal     = "apigateway.amazonaws.com"
   source_arn    = "${aws_apigatewayv2_api.api.execution_arn}/*/*"
-}
-
-output "api_endpoint" {
-  description = "Base endpoint for the HTTP API"
-  value       = aws_apigatewayv2_api.api.api_endpoint
 }
