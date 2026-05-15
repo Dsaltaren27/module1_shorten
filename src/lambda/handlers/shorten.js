@@ -4,7 +4,7 @@ const { generateCode } = require("../utils/generateCode");
 
 exports.handler = async (event) => {
   try {
-    // 1. Extraer datos (maneja si el body viene como string o objeto)
+    // Extraer datos (maneja si el body viene como string o objeto)
     const body = typeof event.body === 'string' ? JSON.parse(event.body) : event.body;
     const { longUrl } = body;
 
@@ -12,10 +12,10 @@ exports.handler = async (event) => {
       return { statusCode: 400, body: JSON.stringify({ error: "Falta longUrl" }) };
     }
 
-    // 2. Generar código único
+    // Generar código único
     const shortCode = generateCode();
 
-    // 3. Guardar en DynamoDB de forma ASÍNCRONA
+    // Guardar en DynamoDB de forma ASÍNCRONA
     const params = {
       TableName: process.env.TABLE_NAME,
       Item: {
@@ -28,7 +28,7 @@ exports.handler = async (event) => {
 
     await docClient.send(new PutCommand(params));
 
-    // 4. Respuesta exitosa con CORS habilitado
+    // Respuesta exitosa con CORS habilitado
     return {
       statusCode: 201,
       headers: {

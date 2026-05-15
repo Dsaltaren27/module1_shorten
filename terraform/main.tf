@@ -48,7 +48,7 @@ resource "aws_dynamodb_table" "urls_table" {
 # --- LAMBDA FUNCTION ---
 data "archive_file" "lambda_zip" {
   type        = "zip"
-  source_dir  = "${path.module}/../build/lambda"
+  source_dir  = "${path.module}/../src/lambda"
   output_path = "${path.module}/lambda.zip"
 }
 
