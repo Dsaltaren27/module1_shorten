@@ -1,0 +1,25 @@
+{
+  "name": "module1_shorten",
+  "version": "1.0.0",
+  "description": "",
+  "homepage": "https://github.com/Dsaltaren27/module1_shorten#readme",
+  "bugs": {
+    "url": "https://github.com/Dsaltaren27/module1_shorten/issues"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Dsaltaren27/module1_shorten.git"
+  },
+  "license": "ISC",
+  "author": "",
+  "type": "commonjs",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "keywords": [],
+  "dependencies": {
+    "@aws-sdk/client-dynamodb": "^3.1047.0",
+    "@aws-sdk/lib-dynamodb": "^3.1047.0"
+  }
+}

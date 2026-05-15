@@ -1,7 +1,7 @@
-const {ramdomBytes} = require('crypto');
+const { randomBytes } = require('crypto');
 
 function generateCode() {
-    return ramdomBytes(3).toString('hex');
-};
+    return randomBytes(3).toString('hex');
+}
 
-module.exports = {generateCode};
+module.exports = { generateCode };
