@@ -1,9 +1,11 @@
-variable "aws_region"{
-    default = "us-east-1"
+variable "aws_region" {
+  type        = string
+  description = "AWS region where resources will be created"
+  default     = "us-east-1"
 }
 
-
 variable "table_name" {
-  description = "Nombre de la tabla compartida"
+  type        = string
+  description = "Nombre de la tabla DynamoDB compartida para almacenar las URLs"
   default     = "UrlsTable"
 }
